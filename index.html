@@ -2132,20 +2132,27 @@ section{
 
 @media(max-width:800px){
 
-  .nav{
+ .nav{
 
-    height:72px;
+  height:72px;
 
-    padding:17px 7vw;
+  padding:17px 7vw;
 
-  }
+}
 
 
-  .navlinks{
+.nav-logo{
 
-    display:none;
+  display:none;
 
-  }
+}
+
+
+.navlinks{
+
+  display:none;
+
+}
 
 
   .hero{
@@ -2225,26 +2232,27 @@ section{
 
 
   .about{
+  width:100%;
   grid-template-columns:1fr;
+  justify-items:center;
   gap:60px;
-  padding:
-    100px 8vw;
+  padding:100px 8vw;
   text-align:center;
 }
 
-
 .about-image{
-
   width:82%;
-
   height:48vh;
-
   min-height:320px;
-
   max-height:500px;
-
   margin:0 auto;
+}
 
+.about-copy{
+  width:100%;
+  max-width:540px;
+  margin:0 auto;
+  text-align:center;
 }
 
 }
@@ -2255,14 +2263,6 @@ section{
 ===================================================== */
 
 @media(max-width:500px){
-
-
-/* =====================================================
-   MOBILE ZERO PAGE
-===================================================== */
-
-@media(max-width:500px){
-
   .intro-content{
 
     padding:
