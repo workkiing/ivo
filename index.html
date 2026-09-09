@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -19,6 +18,7 @@ content="АЙВОРИ — свадебный салон. Коллекция св
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Italiana&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
+
 <style>
 
 /* =====================================================
@@ -28,12 +28,19 @@ content="АЙВОРИ — свадебный салон. Коллекция св
 :root{
 
   --bg:#EFF2FA;
+
   --lilac:#BCA5D4;
+
   --blue:#BACBFE;
+
   --violet:#7164B4;
+
   --lav:#8F9FE4;
+
   --ink:#292538;
+
   --white:#ffffff;
+
   --glass:rgba(239,242,250,.68);
 
 }
@@ -56,8 +63,11 @@ html{
 body{
 
   background:var(--bg);
+
   color:var(--ink);
+
   font-family:"DM Sans",Arial,sans-serif;
+
   overflow-x:hidden;
 
 }
@@ -83,12 +93,19 @@ button{
 .site-bg{
 
   position:fixed;
+
   inset:0;
+
   width:100%;
+
   height:100%;
+
   z-index:-3;
+
   object-fit:cover;
+
   opacity:0;
+
   transition:opacity 1.2s ease;
 
 }
@@ -100,10 +117,13 @@ body.entered .site-bg{
 .background-overlay{
 
   position:fixed;
+
   inset:0;
+
   z-index:-2;
 
   background:
+
   linear-gradient(
     90deg,
     rgba(239,242,250,.90),
@@ -112,7 +132,9 @@ body.entered .site-bg{
   );
 
   opacity:0;
+
   transition:opacity 1.2s ease;
+
   pointer-events:none;
 
 }
@@ -123,22 +145,32 @@ body.entered .background-overlay{
 
 
 /* =====================================================
-   INTRO / ZERO PAGE
-   НОВАЯ ИНТЕРАКТИВНАЯ ВЕРСИЯ
+   ZERO PAGE
+   ОДИН ПОЛНЫЙ ЭКРАН
 ===================================================== */
 
 #intro{
 
   position:fixed;
+
   inset:0;
+
+  width:100%;
+
+  height:100svh;
+
+  min-height:0;
+
   z-index:1000;
-  min-height:100svh;
 
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 
   text-align:center;
+
   overflow:hidden;
 
   background:
@@ -146,18 +178,20 @@ body.entered .background-overlay{
   radial-gradient(
     circle at 50% 30%,
     rgba(255,255,255,.98),
-    rgba(239,242,250,.97) 43%,
+    rgba(239,242,250,.97) 45%,
     rgba(188,165,212,.42) 100%
   );
 
   transition:
-    opacity 1.15s cubic-bezier(.22,.8,.22,1),
-    visibility 1.15s;
+
+  opacity 1s cubic-bezier(.22,.8,.22,1),
+
+  visibility 1s;
 
 }
 
 
-/* декоративные кольца */
+/* ДЕКОРАТИВНЫЕ КОЛЬЦА */
 
 #intro::before{
 
@@ -165,15 +199,13 @@ body.entered .background-overlay{
 
   position:absolute;
 
-  width:80vw;
-  height:80vw;
+  width:min(72vw,760px);
 
-  max-width:900px;
-  max-height:900px;
+  height:min(72vw,760px);
 
   border-radius:50%;
 
-  border:1px solid rgba(113,100,180,.14);
+  border:1px solid rgba(113,100,180,.13);
 
   animation:rotateRing 22s linear infinite;
 
@@ -188,15 +220,13 @@ body.entered .background-overlay{
 
   position:absolute;
 
-  width:58vw;
-  height:58vw;
+  width:min(50vw,540px);
 
-  max-width:650px;
-  max-height:650px;
+  height:min(50vw,540px);
 
   border-radius:50%;
 
-  border:1px solid rgba(143,159,228,.18);
+  border:1px solid rgba(143,159,228,.16);
 
   animation:rotateRingReverse 16s linear infinite;
 
@@ -238,76 +268,359 @@ body.entered .background-overlay{
 .intro-content{
 
   position:relative;
-  z-index:3;
 
-  width:min(760px,94vw);
+  z-index:5;
 
-  padding:25px;
+  width:100%;
+
+  height:100%;
+
+  max-width:1000px;
+
+  padding:
+
+    clamp(12px,2vh,24px)
+
+    20px;
 
   display:flex;
+
   flex-direction:column;
+
   align-items:center;
+
+  justify-content:center;
 
 }
 
 
 /* =====================================================
-   ТЕКСТ НУЛЕВОЙ СТРАНИЦЫ
-   Появляется плавно
+   TOP TEXT
 ===================================================== */
 
 .intro-kicker{
 
-  font-size:9px;
-  letter-spacing:.52em;
+  flex:0 0 auto;
+
+  font-size:clamp(7px,.65vw,9px);
+
+  letter-spacing:.48em;
+
   text-transform:uppercase;
 
   color:var(--violet);
 
-  margin-bottom:20px;
+  margin-bottom:
+
+    clamp(5px,1.2vh,14px);
 
   opacity:0;
 
   animation:
-    introTextAppear 1.2s ease .45s forwards;
+    introTextAppear .9s ease .2s forwards;
 
 }
 
 
 .intro-logo{
 
-  width:min(210px,58vw);
-  max-height:78px;
+  flex:0 0 auto;
+
+  width:min(190px,38vw);
+
+  max-height:
+
+    clamp(45px,8vh,72px);
+
   object-fit:contain;
 
-  margin-bottom:15px;
+  margin-bottom:
+
+    clamp(2px,.6vh,7px);
 
   opacity:0;
 
   animation:
-    introTextAppear 1.2s ease .65s forwards;
+    introTextAppear .9s ease .35s forwards;
 
 }
 
 
+/* =====================================================
+   ПЛАТЬЕ
+===================================================== */
+
+.intro-dress-button{
+
+  position:relative;
+
+  flex:0 1 auto;
+
+  width:min(310px,45vw);
+
+  height:min(53vh,410px);
+
+  max-height:410px;
+
+  min-height:240px;
+
+  margin:
+
+    clamp(2px,1vh,10px)
+
+    auto
+
+    clamp(2px,1vh,10px);
+
+  border:0;
+
+  padding:0;
+
+  background:transparent;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  cursor:pointer;
+
+  -webkit-tap-highlight-color:transparent;
+
+  outline:none;
+
+  appearance:none;
+
+}
+
+
+/* СВЕЧЕНИЕ ВОКРУГ ПЛАТЬЯ */
+
+.intro-dress-button::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+
+  top:50%;
+
+  width:75%;
+
+  height:82%;
+
+  transform:
+
+    translate(-50%,-50%)
+
+    scale(.92);
+
+  border-radius:50%;
+
+  background:
+
+    radial-gradient(
+      ellipse,
+      rgba(188,165,212,.30),
+      rgba(186,203,254,.14) 42%,
+      transparent 72%
+    );
+
+  filter:blur(24px);
+
+  opacity:.55;
+
+  transition:
+
+    transform .7s cubic-bezier(.2,.8,.2,1),
+
+    opacity .7s ease;
+
+  pointer-events:none;
+
+}
+
+
+/* КРУГ ВОКРУГ ПЛАТЬЯ */
+
+.intro-dress-button::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+
+  top:50%;
+
+  width:88%;
+
+  height:88%;
+
+  transform:translate(-50%,-50%);
+
+  border-radius:50%;
+
+  border:1px solid rgba(113,100,180,.09);
+
+  opacity:.5;
+
+  transition:
+
+    transform .7s ease,
+
+    opacity .7s ease;
+
+  pointer-events:none;
+
+}
+
+
+/* САМО ПЛАТЬЕ */
+
+.intro-dress{
+
+  position:relative;
+
+  z-index:3;
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:contain;
+
+  display:block;
+
+  filter:
+
+    drop-shadow(
+      0 28px 40px rgba(113,100,180,.19)
+    );
+
+  animation:
+
+    dressFloat 4.5s ease-in-out infinite;
+
+  transition:
+
+    transform .75s cubic-bezier(.16,.84,.22,1),
+
+    filter .75s ease,
+
+    opacity .8s ease;
+
+  user-select:none;
+
+  -webkit-user-drag:none;
+
+  pointer-events:none;
+
+}
+
+
+@keyframes dressFloat{
+
+  0%,
+  100%{
+
+    transform:translateY(0);
+
+  }
+
+  50%{
+
+    transform:translateY(-8px);
+
+  }
+
+}
+
+
+/* =====================================================
+   HOVER ПЛАТЬЯ
+===================================================== */
+
+@media(hover:hover){
+
+  .intro-dress-button:hover .intro-dress{
+
+    transform:
+
+      translateY(-8px)
+
+      scale(1.045);
+
+    filter:
+
+      drop-shadow(
+        0 22px 48px rgba(113,100,180,.30)
+      )
+
+      drop-shadow(
+        0 0 22px rgba(255,255,255,.90)
+      );
+
+  }
+
+
+  .intro-dress-button:hover::before{
+
+    opacity:.95;
+
+    transform:
+
+      translate(-50%,-50%)
+
+      scale(1.08);
+
+  }
+
+
+  .intro-dress-button:hover::after{
+
+    opacity:.9;
+
+    transform:
+
+      translate(-50%,-50%)
+
+      scale(1.045);
+
+  }
+
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
 .intro-title{
+
+  flex:0 0 auto;
 
   font-family:"Italiana",serif;
 
-  font-size:clamp(42px,6vw,82px);
+  font-size:
 
-  line-height:.88;
+    clamp(34px,4.7vw,68px);
+
+  line-height:.86;
 
   font-weight:400;
 
   letter-spacing:.03em;
 
-  margin-top:8px;
+  margin-top:0;
 
   opacity:0;
 
   animation:
-    introTextAppear 1.2s ease .8s forwards;
+
+    introTextAppear .9s ease .55s forwards;
 
 }
 
@@ -322,9 +635,11 @@ body.entered .background-overlay{
 
   font-style:italic;
 
-  letter-spacing:.20em;
+  letter-spacing:.18em;
 
-  margin-top:16px;
+  margin-top:
+
+    clamp(8px,1.2vh,14px);
 
   color:var(--violet);
 
@@ -333,18 +648,25 @@ body.entered .background-overlay{
 
 .intro-sub{
 
+  flex:0 0 auto;
+
   font-family:"Playfair Display",serif;
 
-  font-size:clamp(16px,2vw,23px);
+  font-size:
+
+    clamp(13px,1.55vw,20px);
 
   font-style:italic;
 
-  margin-top:18px;
+  margin-top:
+
+    clamp(8px,1.3vh,15px);
 
   opacity:0;
 
   animation:
-    introTextAppear 1.2s ease 1s forwards;
+
+    introTextAppear .9s ease .7s forwards;
 
 }
 
@@ -354,13 +676,15 @@ body.entered .background-overlay{
   from{
 
     opacity:0;
-    transform:translateY(18px);
+
+    transform:translateY(14px);
 
   }
 
   to{
 
     opacity:1;
+
     transform:translateY(0);
 
   }
@@ -369,186 +693,30 @@ body.entered .background-overlay{
 
 
 /* =====================================================
-   ПЛАТЬЕ — ГЛАВНАЯ КНОПКА
-===================================================== */
-
-.intro-dress-wrap{
-
-  position:relative;
-
-  width:min(360px,68vw);
-
-  height:min(430px,57vh);
-
-  margin:5px auto 0;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  cursor:pointer;
-
-  -webkit-tap-highlight-color:transparent;
-
-}
-
-
-/* мягкое свечение за платьем */
-
-.intro-dress-wrap::before{
-
-  content:"";
-
-  position:absolute;
-
-  width:72%;
-  height:82%;
-
-  border-radius:50%;
-
-  background:
-
-    radial-gradient(
-      ellipse,
-      rgba(188,165,212,.30) 0%,
-      rgba(186,203,254,.18) 42%,
-      transparent 72%
-    );
-
-  filter:blur(25px);
-
-  opacity:.65;
-
-  transform:scale(.92);
-
-  transition:
-    transform .8s cubic-bezier(.2,.8,.2,1),
-    opacity .8s ease;
-
-}
-
-
-/* тонкое световое кольцо */
-
-.intro-dress-wrap::after{
-
-  content:"";
-
-  position:absolute;
-
-  width:86%;
-  height:86%;
-
-  border-radius:50%;
-
-  border:1px solid rgba(113,100,180,.10);
-
-  opacity:.55;
-
-  transition:
-    transform .8s ease,
-    opacity .8s ease;
-
-}
-
-
-/* само платье */
-
-.intro-dress{
-
-  position:relative;
-
-  z-index:2;
-
-  width:min(285px,58vw);
-
-  height:min(400px,52vh);
-
-  object-fit:contain;
-
-  display:block;
-
-  margin:0 auto;
-
-  filter:
-
-    drop-shadow(
-      0 35px 45px rgba(113,100,180,.20)
-    );
-
-  animation:dressFloat 4.5s ease-in-out infinite;
-
-  transition:
-
-    transform .8s cubic-bezier(.2,.8,.2,1),
-
-    filter .8s cubic-bezier(.2,.8,.2,1);
-
-}
-
-
-/* =====================================================
-   ЭФФЕКТ НАВЕДЕНИЯ
-===================================================== */
-
-.intro-dress-wrap:hover .intro-dress{
-
-  transform:
-    translateY(-10px)
-    scale(1.055);
-
-  filter:
-
-    drop-shadow(
-      0 28px 55px rgba(113,100,180,.32)
-    )
-
-    drop-shadow(
-      0 0 24px rgba(255,255,255,.85)
-    );
-
-}
-
-
-.intro-dress-wrap:hover::before{
-
-  opacity:1;
-
-  transform:scale(1.08);
-
-}
-
-
-.intro-dress-wrap:hover::after{
-
-  opacity:.95;
-
-  transform:scale(1.06);
-
-}
-
-
-/* =====================================================
-   ПОДСКАЗКА
+   ENTER HINT
 ===================================================== */
 
 .intro-enter{
 
-  position:relative;
-  z-index:5;
+  flex:0 0 auto;
 
   display:flex;
 
   justify-content:center;
+
   align-items:center;
 
-  gap:12px;
+  gap:10px;
 
-  margin-top:4px;
+  margin-top:
 
-  font-size:8px;
+    clamp(8px,1.5vh,17px);
 
-  letter-spacing:.34em;
+  font-size:
+
+    clamp(6px,.6vw,8px);
+
+  letter-spacing:.28em;
 
   text-transform:uppercase;
 
@@ -557,7 +725,8 @@ body.entered .background-overlay{
   opacity:0;
 
   animation:
-    introTextAppear 1.2s ease 1.25s forwards;
+
+    introTextAppear .9s ease .9s forwards;
 
   pointer-events:none;
 
@@ -566,17 +735,25 @@ body.entered .background-overlay{
 
 .enter-circle{
 
-  width:28px;
-  height:28px;
+  width:
 
-  border:1px solid rgba(113,100,180,.45);
+    clamp(24px,2.2vw,29px);
+
+  height:
+
+    clamp(24px,2.2vw,29px);
+
+  border:
+
+    1px solid rgba(113,100,180,.42);
 
   border-radius:50%;
 
   display:grid;
+
   place-items:center;
 
-  font-size:15px;
+  font-size:14px;
 
   animation:pulse 2s infinite;
 
@@ -595,7 +772,7 @@ body.entered .background-overlay{
   70%{
 
     box-shadow:
-      0 0 0 13px rgba(113,100,180,0);
+      0 0 0 12px rgba(113,100,180,0);
 
   }
 
@@ -610,29 +787,7 @@ body.entered .background-overlay{
 
 
 /* =====================================================
-   FLOAT ПЛАТЬЯ
-===================================================== */
-
-@keyframes dressFloat{
-
-  0%,
-  100%{
-
-    transform:translateY(0);
-
-  }
-
-  50%{
-
-    transform:translateY(-12px);
-
-  }
-
-}
-
-
-/* =====================================================
-   КЛИК — ПЛАТЬЕ ПРИБЛИЖАЕТСЯ
+   CLICK ANIMATION
 ===================================================== */
 
 #intro.entering{
@@ -640,9 +795,6 @@ body.entered .background-overlay{
   opacity:0;
 
   pointer-events:none;
-
-  transition:
-    opacity 1.25s cubic-bezier(.22,.8,.22,1);
 
 }
 
@@ -652,46 +804,56 @@ body.entered .background-overlay{
   animation:none;
 
   transform:
-    scale(1.42)
-    translateY(-5px);
+
+    scale(1.38)
+
+    translateY(-3px);
+
+  opacity:0;
 
   filter:
 
     drop-shadow(
-      0 15px 80px rgba(113,100,180,.40)
+      0 10px 65px rgba(113,100,180,.40)
     )
 
     drop-shadow(
-      0 0 45px rgba(255,255,255,1)
+      0 0 40px rgba(255,255,255,1)
     );
-
-  opacity:0;
 
   transition:
 
-    transform 1.15s cubic-bezier(.16,.84,.22,1),
+    transform 1s cubic-bezier(.12,.82,.18,1),
 
-    opacity .95s ease .18s,
+    opacity .8s ease .15s,
 
-    filter 1s ease;
+    filter .8s ease;
 
 }
 
 
-#intro.entering .intro-dress-wrap::before{
+#intro.entering .intro-dress-button::before{
 
   opacity:1;
 
-  transform:scale(1.55);
+  transform:
+
+    translate(-50%,-50%)
+
+    scale(1.5);
 
 }
 
 
-#intro.entering .intro-dress-wrap::after{
+#intro.entering .intro-dress-button::after{
 
   opacity:0;
 
-  transform:scale(1.4);
+  transform:
+
+    translate(-50%,-50%)
+
+    scale(1.35);
 
 }
 
@@ -704,23 +866,23 @@ body.entered .background-overlay{
 
   opacity:0;
 
-  transform:translateY(-12px);
+  transform:translateY(-10px);
 
   transition:
-    opacity .45s ease,
-    transform .65s ease;
+
+    opacity .4s ease,
+
+    transform .5s ease;
 
 }
 
 
-/* =====================================================
-   HIDDEN
-===================================================== */
-
 #intro.hidden{
 
   opacity:0;
+
   visibility:hidden;
+
   pointer-events:none;
 
 }
@@ -767,7 +929,9 @@ body.entered #site{
   position:fixed;
 
   top:0;
+
   left:0;
+
   right:0;
 
   z-index:100;
@@ -2003,58 +2167,74 @@ section{
 }
 
 
+/* =====================================================
+   MOBILE ZERO PAGE
+===================================================== */
+
 @media(max-width:500px){
 
   .intro-content{
 
-    padding:12px;
+    padding:
+
+      8px
+
+      15px;
 
   }
 
 
   .intro-kicker{
 
-    font-size:7px;
+    font-size:6px;
 
-    margin-bottom:10px;
-
-  }
-
-
-  .intro-logo{
-
-    width:175px;
-
-    max-height:65px;
+    letter-spacing:.38em;
 
     margin-bottom:4px;
 
   }
 
 
-  .intro-dress-wrap{
+  .intro-logo{
 
-    width:290px;
+    width:145px;
 
-    height:315px;
+    max-height:50px;
+
+    margin-bottom:0;
+
+  }
+
+
+  .intro-dress-button{
+
+    width:min(245px,65vw);
+
+    height:min(39vh,285px);
+
+    min-height:205px;
 
     margin-top:0;
+
+    margin-bottom:0;
 
   }
 
 
   .intro-dress{
 
-    width:220px;
+    width:100%;
 
-    height:300px;
+    height:100%;
 
   }
 
 
   .intro-title{
 
-    font-size:43px;
+    font-size:
+
+      clamp(30px,9.5vw,43px);
 
     margin-top:0;
 
@@ -2063,43 +2243,47 @@ section{
 
   .intro-title span{
 
-    margin-top:11px;
+    margin-top:7px;
+
+    letter-spacing:.14em;
 
   }
 
 
   .intro-sub{
 
-    font-size:16px;
+    font-size:14px;
 
-    margin-top:13px;
+    margin-top:8px;
 
   }
 
 
   .intro-enter{
 
-    margin-top:4px;
+    margin-top:7px;
 
-    font-size:7px;
+    font-size:6px;
 
-    letter-spacing:.22em;
+    letter-spacing:.18em;
 
   }
 
 
   .enter-circle{
 
-    width:25px;
+    width:23px;
 
-    height:25px;
+    height:23px;
+
+    font-size:12px;
 
   }
 
 
   #intro.entering .intro-dress{
 
-    transform:scale(1.35);
+    transform:scale(1.3);
 
   }
 
@@ -2147,37 +2331,14 @@ section{
 
 
 /* =====================================================
-   MOBILE — УБИРАЕМ HOVER-ЗАВИСИМОСТЬ
+   НЕ ЗАВИСИТ ОТ HOVER НА ТЕЛЕФОНЕ
 ===================================================== */
 
 @media(hover:none){
 
-  .intro-dress-wrap:hover .intro-dress{
-
-    transform:none;
-
-    filter:
-      drop-shadow(
-        0 35px 45px rgba(113,100,180,.20)
-      );
-
-  }
-
-
-  .intro-dress-wrap:hover::before{
-
-    opacity:.65;
-
-    transform:scale(.92);
-
-  }
-
-
-  .intro-dress-wrap:hover::after{
+  .intro-dress-button::before{
 
     opacity:.55;
-
-    transform:scale(1);
 
   }
 
@@ -2245,14 +2406,13 @@ section{
 
 
     <!-- =================================================
-         ПЛАТЬЕ — ТЕПЕРЬ ЭТО ГЛАВНАЯ КНОПКА
+         ПЛАТЬЕ = КНОПКА ВХОДА
     ================================================== -->
 
-    <div
-      class="intro-dress-wrap"
+    <button
+      type="button"
+      class="intro-dress-button"
       id="introDress"
-      role="button"
-      tabindex="0"
       aria-label="Войти в свадебный салон"
     >
 
@@ -2260,9 +2420,10 @@ section{
         src="entry-dress.png"
         class="intro-dress"
         alt="Свадебное платье"
+        draggable="false"
       >
 
-    </div>
+    </button>
 
 
     <h1 class="intro-title">
@@ -2314,7 +2475,9 @@ section{
 <header class="nav" id="nav">
 
   <a href="#home" class="nav-logo">
+
     АЙВОРИ
+
   </a>
 
 
@@ -2354,7 +2517,9 @@ section{
   <div class="hero-copy">
 
     <div class="kicker">
+
       Collection · 2026
+
     </div>
 
 
@@ -2412,19 +2577,25 @@ section{
     <div>
 
       <div class="overline">
+
         The collection
+
       </div>
 
 
       <h2>
+
         Платья
+
       </h2>
 
     </div>
 
 
     <div class="collection-note">
+
       14 моделей · Bridal collection
+
     </div>
 
   </div>
@@ -2548,7 +2719,9 @@ section{
 
 
     <div class="overline">
+
       The salon
+
     </div>
 
 
@@ -2583,7 +2756,9 @@ section{
     <div class="address">
 
       <span class="address-title">
+
         Мы ждём вас
+
       </span>
 
 
@@ -2615,7 +2790,9 @@ section{
 
 
   <div class="kicker">
+
     Get in touch
+
   </div>
 
 
@@ -2646,7 +2823,9 @@ section{
 
 
   <div class="contact-text">
+
     Запись на примерку
+
   </div>
 
 
@@ -2737,7 +2916,9 @@ section{
 
 
     <div class="modal-kicker">
+
       Bridal appointment
+
     </div>
 
 
@@ -2747,7 +2928,9 @@ section{
       Примерить
 
       <em id="modalDressName">
+
         Модель 01
+
       </em>
 
     </h3>
@@ -2801,33 +2984,41 @@ section{
 
 
 /* =====================================================
-   ZERO PAGE ENTER
+   ZERO PAGE
 ===================================================== */
 
 const intro =
-document.getElementById("intro");
+  document.getElementById("intro");
 
 const introDress =
-document.getElementById("introDress");
+  document.getElementById("introDress");
 
 const music =
-document.getElementById("siteMusic");
+  document.getElementById("siteMusic");
+
+
+let enteringSite = false;
 
 
 /*
-   Вход запускается ТОЛЬКО при нажатии
-   на свадебное платье.
+  Вход происходит только при клике
+  непосредственно на платье.
 */
 
 async function enterSite(){
 
-  if(intro.classList.contains("entering")){
+  if(enteringSite){
     return;
   }
 
+  enteringSite = true;
 
-  /* запускаем музыку в момент
-     реального действия пользователя */
+
+  /*
+    Сначала запускаем музыку.
+    Это важно сделать непосредственно
+    внутри клика пользователя.
+  */
 
   music.volume = 0.55;
 
@@ -2841,23 +3032,22 @@ async function enterSite(){
   catch(error){
 
     console.log(
-      "Музыка будет доступна после взаимодействия пользователя."
+      "Автовоспроизведение музыки заблокировано браузером."
     );
 
   }
 
 
   /*
-     Сначала запускаем красивую
-     анимацию платья.
+    Запускаем анимацию нулевой страницы.
   */
 
   intro.classList.add("entering");
 
 
   /*
-     После завершения основной анимации
-     показываем сайт.
+    После красивого растворения
+    открываем основной сайт.
   */
 
   setTimeout(() => {
@@ -2866,12 +3056,14 @@ async function enterSite(){
 
     document.body.classList.add("entered");
 
-  }, 900);
+  }, 850);
 
 }
 
 
-/* КЛИК ПО ПЛАТЬЮ */
+/* =====================================================
+   КЛИК ПО ПЛАТЬЮ
+===================================================== */
 
 introDress.addEventListener(
   "click",
@@ -2879,7 +3071,9 @@ introDress.addEventListener(
 );
 
 
-/* КЛАВИАТУРА */
+/* =====================================================
+   КЛАВИАТУРА
+===================================================== */
 
 introDress.addEventListener(
   "keydown",
@@ -2906,7 +3100,7 @@ introDress.addEventListener(
 ===================================================== */
 
 const nav =
-document.getElementById("nav");
+  document.getElementById("nav");
 
 
 window.addEventListener("scroll", () => {
@@ -3003,27 +3197,27 @@ let current = 0;
 
 
 const dressImage =
-document.getElementById("dressImage");
+  document.getElementById("dressImage");
 
 
 const modelName =
-document.getElementById("modelName");
+  document.getElementById("modelName");
 
 
 const modelNumber =
-document.getElementById("modelNumber");
+  document.getElementById("modelNumber");
 
 
 const placeholder =
-document.getElementById("placeholder");
+  document.getElementById("placeholder");
 
 
 const dots =
-document.getElementById("dots");
+  document.getElementById("dots");
 
 
 const dressCard =
-document.getElementById("dressCard");
+  document.getElementById("dressCard");
 
 
 /* =====================================================
@@ -3032,9 +3226,8 @@ document.getElementById("dressCard");
 
 models.forEach((model,index) => {
 
-
   const dot =
-  document.createElement("button");
+    document.createElement("button");
 
 
   dot.className =
@@ -3056,7 +3249,6 @@ models.forEach((model,index) => {
 
   dots.appendChild(dot);
 
-
 });
 
 
@@ -3067,7 +3259,6 @@ models.forEach((model,index) => {
 
 function showDress(index){
 
-
   current =
     (index + models.length)
     % models.length;
@@ -3077,7 +3268,8 @@ function showDress(index){
     models[current];
 
 
-  dressImage.style.opacity = "0";
+  dressImage.style.opacity =
+    "0";
 
 
   placeholder.style.display =
@@ -3104,7 +3296,6 @@ function showDress(index){
 
   newImage.onload = () => {
 
-
     dressImage.src =
       model.image;
 
@@ -3124,12 +3315,10 @@ function showDress(index){
 
     });
 
-
   };
 
 
   newImage.onerror = () => {
-
 
     dressImage.style.opacity =
       "0";
@@ -3138,13 +3327,11 @@ function showDress(index){
     placeholder.style.display =
       "grid";
 
-
   };
 
 
   newImage.src =
     model.image;
-
 
 
   [...dots.children].forEach(
@@ -3158,7 +3345,6 @@ function showDress(index){
     }
   );
 
-
 }
 
 
@@ -3169,20 +3355,26 @@ function showDress(index){
 
 document
   .getElementById("prev")
-  .addEventListener("click", () => {
+  .addEventListener(
+    "click",
+    () => {
 
-    showDress(current - 1);
+      showDress(current - 1);
 
-  });
+    }
+  );
 
 
 document
   .getElementById("next")
-  .addEventListener("click", () => {
+  .addEventListener(
+    "click",
+    () => {
 
-    showDress(current + 1);
+      showDress(current + 1);
 
-  });
+    }
+  );
 
 
 
@@ -3193,7 +3385,6 @@ document
 document.addEventListener(
   "keydown",
   event => {
-
 
     if(
       event.key === "ArrowLeft"
@@ -3211,7 +3402,6 @@ document.addEventListener(
       showDress(current + 1);
 
     }
-
 
   }
 );
@@ -3241,7 +3431,6 @@ dressCard.addEventListener(
   "touchend",
   event => {
 
-
     const endX =
       event.changedTouches[0].screenX;
 
@@ -3253,7 +3442,6 @@ dressCard.addEventListener(
     if(
       Math.abs(difference) > 50
     ){
-
 
       if(difference > 0){
 
@@ -3267,9 +3455,7 @@ dressCard.addEventListener(
 
       }
 
-
     }
-
 
   },
   {passive:true}
@@ -3282,23 +3468,22 @@ dressCard.addEventListener(
 ===================================================== */
 
 const modal =
-document.getElementById("modal");
+  document.getElementById("modal");
 
 
 const modalClose =
-document.getElementById("modalClose");
+  document.getElementById("modalClose");
 
 
 const modalDressName =
-document.getElementById("modalDressName");
+  document.getElementById("modalDressName");
 
 
 const whatsappButton =
-document.getElementById("whatsappButton");
+  document.getElementById("whatsappButton");
 
 
 function openModal(){
-
 
   const selectedModel =
     models[current].name;
@@ -3331,19 +3516,15 @@ function openModal(){
 
   document.body.classList.add("lock");
 
-
 }
 
 
 
 function closeModal(){
 
-
   modal.classList.remove("active");
 
-
   document.body.classList.remove("lock");
-
 
 }
 
@@ -3373,7 +3554,6 @@ modal.addEventListener(
   "click",
   event => {
 
-
     if(
       event.target === modal
     ){
@@ -3381,7 +3561,6 @@ modal.addEventListener(
       closeModal();
 
     }
-
 
   }
 );
@@ -3394,7 +3573,6 @@ document.addEventListener(
   "keydown",
   event => {
 
-
     if(
       event.key === "Escape"
     ){
@@ -3402,7 +3580,6 @@ document.addEventListener(
       closeModal();
 
     }
-
 
   }
 );
@@ -3420,6 +3597,5 @@ showDress(0);
 
 
 </body>
-
 </html>
 ```
