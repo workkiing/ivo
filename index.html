@@ -1,0 +1,3018 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>АЙВОРИ — Свадебный салон</title>
+
+<meta name="description"
+content="АЙВОРИ — свадебный салон. Коллекция свадебных платьев и запись на примерку.">
+
+<meta name="theme-color" content="#EFF2FA">
+
+<!-- PREMIUM FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Italiana&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root{
+
+  --bg:#EFF2FA;
+
+  --lilac:#BCA5D4;
+
+  --blue:#BACBFE;
+
+  --violet:#7164B4;
+
+  --lav:#8F9FE4;
+
+  --ink:#292538;
+
+  --white:#ffffff;
+
+  --glass:rgba(239,242,250,.68);
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+
+  background:var(--bg);
+
+  color:var(--ink);
+
+  font-family:"DM Sans",Arial,sans-serif;
+
+  overflow-x:hidden;
+
+}
+
+body.lock{
+  overflow:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+
+/* =====================================================
+   BACKGROUND VIDEO
+===================================================== */
+
+.site-bg{
+
+  position:fixed;
+
+  inset:0;
+
+  width:100%;
+
+  height:100%;
+
+  z-index:-3;
+
+  object-fit:cover;
+
+  opacity:0;
+
+  transition:opacity 1.2s ease;
+
+}
+
+body.entered .site-bg{
+  opacity:1;
+}
+
+.background-overlay{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:-2;
+
+  background:
+
+  linear-gradient(
+    90deg,
+    rgba(239,242,250,.90),
+    rgba(239,242,250,.38),
+    rgba(239,242,250,.78)
+  );
+
+  opacity:0;
+
+  transition:opacity 1.2s ease;
+
+  pointer-events:none;
+
+}
+
+body.entered .background-overlay{
+  opacity:1;
+}
+
+
+/* =====================================================
+   INTRO / ZERO PAGE
+===================================================== */
+
+#intro{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:1000;
+
+  min-height:100svh;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  text-align:center;
+
+  overflow:hidden;
+
+  background:
+
+  radial-gradient(
+    circle at 50% 25%,
+    rgba(255,255,255,.95),
+    rgba(239,242,250,.96) 42%,
+    rgba(188,165,212,.38) 100%
+  );
+
+  transition:
+
+  opacity 1s cubic-bezier(.22,.8,.22,1),
+
+  visibility 1s;
+
+}
+
+#intro::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:80vw;
+
+  height:80vw;
+
+  max-width:900px;
+
+  max-height:900px;
+
+  border-radius:50%;
+
+  border:1px solid rgba(113,100,180,.14);
+
+  animation:rotateRing 22s linear infinite;
+
+}
+
+#intro::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:58vw;
+
+  height:58vw;
+
+  max-width:650px;
+
+  max-height:650px;
+
+  border-radius:50%;
+
+  border:1px solid rgba(143,159,228,.18);
+
+  animation:rotateRingReverse 16s linear infinite;
+
+}
+
+@keyframes rotateRing{
+
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+@keyframes rotateRingReverse{
+
+  from{
+    transform:rotate(360deg);
+  }
+
+  to{
+    transform:rotate(0deg);
+  }
+
+}
+
+
+.intro-content{
+
+  position:relative;
+
+  z-index:3;
+
+  padding:30px;
+
+  cursor:pointer;
+
+  animation:introAppear 1.4s ease forwards;
+
+}
+
+@keyframes introAppear{
+
+  from{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+  }
+
+}
+
+
+.intro-kicker{
+
+  font-size:9px;
+
+  letter-spacing:.52em;
+
+  text-transform:uppercase;
+
+  color:var(--violet);
+
+  margin-bottom:26px;
+
+  opacity:.8;
+
+}
+
+
+.intro-logo{
+
+  width:min(240px,65vw);
+
+  max-height:90px;
+
+  object-fit:contain;
+
+  margin-bottom:28px;
+
+}
+
+
+.intro-dress{
+
+  width:min(285px,58vw);
+
+  height:min(400px,62vh);
+
+  object-fit:contain;
+
+  display:block;
+
+  margin:0 auto;
+
+  filter:
+
+  drop-shadow(
+    0 35px 45px rgba(113,100,180,.20)
+  );
+
+  animation:dressFloat 4.5s ease-in-out infinite;
+
+  transition:.6s cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+@keyframes dressFloat{
+
+  0%,
+  100%{
+
+    transform:translateY(0);
+
+  }
+
+  50%{
+
+    transform:translateY(-16px);
+
+  }
+
+}
+
+
+.intro-content:hover .intro-dress{
+
+  transform:
+
+  translateY(-12px)
+
+  scale(1.035);
+
+}
+
+
+.intro-title{
+
+  font-family:"Italiana",serif;
+
+  font-size:clamp(48px,7vw,100px);
+
+  line-height:.85;
+
+  font-weight:400;
+
+  letter-spacing:.03em;
+
+  margin-top:24px;
+
+}
+
+
+.intro-title span{
+
+  display:block;
+
+  font-family:"Playfair Display",serif;
+
+  font-size:.34em;
+
+  font-style:italic;
+
+  letter-spacing:.20em;
+
+  margin-top:20px;
+
+  color:var(--violet);
+
+}
+
+
+.intro-sub{
+
+  font-family:"Playfair Display",serif;
+
+  font-size:clamp(18px,2vw,27px);
+
+  font-style:italic;
+
+  margin-top:26px;
+
+}
+
+
+.intro-enter{
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:12px;
+
+  margin-top:32px;
+
+  font-size:8px;
+
+  letter-spacing:.34em;
+
+  text-transform:uppercase;
+
+  color:var(--violet);
+
+}
+
+
+.enter-circle{
+
+  width:28px;
+
+  height:28px;
+
+  border:1px solid rgba(113,100,180,.45);
+
+  border-radius:50%;
+
+  display:grid;
+
+  place-items:center;
+
+  font-size:15px;
+
+  animation:pulse 2s infinite;
+
+}
+
+
+@keyframes pulse{
+
+  0%{
+
+    box-shadow:0 0 0 0 rgba(113,100,180,.25);
+
+  }
+
+  70%{
+
+    box-shadow:0 0 0 13px rgba(113,100,180,0);
+
+  }
+
+  100%{
+
+    box-shadow:0 0 0 0 rgba(113,100,180,0);
+
+  }
+
+}
+
+
+#intro.hidden{
+
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+}
+
+
+/* =====================================================
+   MAIN SITE
+===================================================== */
+
+#site{
+
+  opacity:0;
+
+  transform:translateY(25px);
+
+  pointer-events:none;
+
+  transition:
+
+  opacity 1.2s ease,
+
+  transform 1.2s ease;
+
+}
+
+body.entered #site{
+
+  opacity:1;
+
+  transform:none;
+
+  pointer-events:auto;
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.nav{
+
+  position:fixed;
+
+  top:0;
+
+  left:0;
+
+  right:0;
+
+  z-index:100;
+
+  height:86px;
+
+  padding:20px 6vw;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  transition:.4s ease;
+
+}
+
+.nav.scrolled{
+
+  background:rgba(239,242,250,.72);
+
+  backdrop-filter:blur(18px);
+
+  box-shadow:
+
+  0 10px 40px rgba(113,100,180,.07);
+
+}
+
+
+.nav-logo{
+
+  font-family:"Italiana",serif;
+
+  font-size:30px;
+
+  letter-spacing:.10em;
+
+  color:var(--ink);
+
+}
+
+
+.navlinks{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:32px;
+
+}
+
+
+.navlinks a{
+
+  position:relative;
+
+  font-size:8px;
+
+  letter-spacing:.22em;
+
+  text-transform:uppercase;
+
+  opacity:.7;
+
+  transition:.3s;
+
+}
+
+
+.navlinks a::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:0;
+
+  bottom:-7px;
+
+  width:0;
+
+  height:1px;
+
+  background:var(--violet);
+
+  transition:.3s;
+
+}
+
+
+.navlinks a:hover{
+
+  opacity:1;
+
+  color:var(--violet);
+
+}
+
+
+.navlinks a:hover::after{
+
+  width:100%;
+
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+section{
+
+  min-height:100svh;
+
+  position:relative;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+  display:flex;
+
+  align-items:center;
+
+  padding:
+
+  130px 9vw
+
+  90px;
+
+}
+
+
+.hero-copy{
+
+  position:relative;
+
+  z-index:2;
+
+  max-width:760px;
+
+}
+
+
+.kicker{
+
+  font-size:8px;
+
+  letter-spacing:.42em;
+
+  text-transform:uppercase;
+
+  color:var(--violet);
+
+  margin-bottom:25px;
+
+}
+
+
+.hero h1{
+
+  font-family:"Italiana",serif;
+
+  font-weight:400;
+
+  font-size:clamp(75px,10vw,150px);
+
+  line-height:.74;
+
+  letter-spacing:.01em;
+
+}
+
+
+.hero h1 em{
+
+  font-family:"Playfair Display",serif;
+
+  font-size:.78em;
+
+  color:var(--violet);
+
+  font-style:italic;
+
+}
+
+
+.hero-text{
+
+  max-width:470px;
+
+  margin-top:42px;
+
+  font-size:13px;
+
+  line-height:2;
+
+  color:#514c5f;
+
+}
+
+
+.hero-link{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:20px;
+
+  margin-top:36px;
+
+  padding-bottom:12px;
+
+  border-bottom:1px solid var(--violet);
+
+  font-size:8px;
+
+  letter-spacing:.28em;
+
+  text-transform:uppercase;
+
+}
+
+
+.hero-link span{
+
+  font-size:21px;
+
+  font-weight:300;
+
+  transition:.3s;
+
+}
+
+
+.hero-link:hover span{
+
+  transform:translateX(8px);
+
+}
+
+
+/* =====================================================
+   COLLECTION
+===================================================== */
+
+.collection{
+
+  padding:
+
+  120px 7vw
+
+  100px;
+
+}
+
+
+.collection-head{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-end;
+
+  margin-bottom:50px;
+
+}
+
+
+.overline{
+
+  font-size:8px;
+
+  letter-spacing:.38em;
+
+  text-transform:uppercase;
+
+  color:var(--violet);
+
+  margin-bottom:16px;
+
+}
+
+
+.collection h2,
+
+.about h2{
+
+  font-family:"Italiana",serif;
+
+  font-size:clamp(65px,9vw,125px);
+
+  font-weight:400;
+
+  line-height:.78;
+
+}
+
+
+.collection-note{
+
+  font-size:8px;
+
+  letter-spacing:.24em;
+
+  text-transform:uppercase;
+
+  opacity:.55;
+
+}
+
+
+/* =====================================================
+   DRESS GALLERY
+===================================================== */
+
+.gallery{
+
+  position:relative;
+
+  width:100%;
+
+  max-width:1050px;
+
+  margin:auto;
+
+}
+
+
+.dress-card{
+
+  position:relative;
+
+  height:min(72vh,760px);
+
+  min-height:520px;
+
+  overflow:hidden;
+
+  cursor:pointer;
+
+  background:
+
+  linear-gradient(
+    145deg,
+    rgba(188,165,212,.78),
+    rgba(186,203,254,.78)
+  );
+
+  box-shadow:
+
+  0 35px 100px rgba(113,100,180,.20);
+
+}
+
+
+.dress-card::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+
+  linear-gradient(
+    to top,
+    rgba(41,37,56,.42),
+    transparent 45%
+  );
+
+  pointer-events:none;
+
+}
+
+
+.dress-image{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+
+  transition:
+
+  transform 1s cubic-bezier(.2,.7,.2,1),
+
+  opacity .5s;
+
+}
+
+
+.dress-card:hover .dress-image{
+
+  transform:scale(1.045);
+
+}
+
+
+.dress-placeholder{
+
+  position:absolute;
+
+  inset:0;
+
+  display:grid;
+
+  place-items:center;
+
+  font-family:"Italiana",serif;
+
+  font-size:clamp(50px,8vw,100px);
+
+  color:rgba(255,255,255,.72);
+
+}
+
+
+.dress-info{
+
+  position:absolute;
+
+  z-index:5;
+
+  left:7%;
+
+  bottom:7%;
+
+  color:white;
+
+}
+
+
+.model-number{
+
+  font-size:8px;
+
+  letter-spacing:.35em;
+
+  text-transform:uppercase;
+
+  opacity:.8;
+
+  margin-bottom:10px;
+
+}
+
+
+.model-name{
+
+  font-family:"Playfair Display",serif;
+
+  font-size:clamp(38px,5vw,70px);
+
+}
+
+
+.try-hint{
+
+  margin-top:13px;
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  font-size:8px;
+
+  letter-spacing:.28em;
+
+  text-transform:uppercase;
+
+}
+
+
+.try-hint span{
+
+  font-size:18px;
+
+}
+
+
+.gallery-button{
+
+  position:absolute;
+
+  z-index:10;
+
+  top:50%;
+
+  transform:translateY(-50%);
+
+  width:58px;
+
+  height:58px;
+
+  border:0;
+
+  border-radius:50%;
+
+  background:rgba(255,255,255,.76);
+
+  backdrop-filter:blur(15px);
+
+  color:var(--violet);
+
+  cursor:pointer;
+
+  font-size:23px;
+
+  transition:.3s;
+
+}
+
+
+.gallery-button:hover{
+
+  background:white;
+
+  transform:
+
+  translateY(-50%)
+
+  scale(1.08);
+
+}
+
+
+.prev{
+
+  left:-28px;
+
+}
+
+
+.next{
+
+  right:-28px;
+
+}
+
+
+.dots{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:11px;
+
+  margin-top:30px;
+
+}
+
+
+.dot{
+
+  width:6px;
+
+  height:6px;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:var(--lav);
+
+  opacity:.35;
+
+  cursor:pointer;
+
+  transition:.3s;
+
+}
+
+
+.dot.active{
+
+  opacity:1;
+
+  background:var(--violet);
+
+  transform:scale(1.6);
+
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about{
+
+  display:grid;
+
+  grid-template-columns:
+
+  minmax(300px,1fr)
+
+  minmax(300px,1fr);
+
+  gap:10vw;
+
+  align-items:center;
+
+  padding:
+
+  120px 10vw;
+
+}
+
+
+.about-image{
+
+  position:relative;
+
+  height:min(72vh,760px);
+
+  min-height:500px;
+
+  overflow:hidden;
+
+  background:
+
+  linear-gradient(
+    145deg,
+    var(--lilac),
+    var(--blue)
+  );
+
+}
+
+
+.about-image img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+}
+
+
+.about-image::after{
+
+  content:"АЙВОРИ";
+
+  position:absolute;
+
+  left:-12px;
+
+  bottom:-42px;
+
+  font-family:"Italiana",serif;
+
+  font-size:clamp(90px,12vw,180px);
+
+  color:rgba(255,255,255,.32);
+
+  white-space:nowrap;
+
+}
+
+
+.about-copy{
+
+  max-width:540px;
+
+}
+
+
+.about h2 em{
+
+  font-family:"Playfair Display",serif;
+
+  font-style:italic;
+
+  color:var(--violet);
+
+}
+
+
+.about p{
+
+  margin-top:36px;
+
+  font-size:13px;
+
+  line-height:2;
+
+  color:#575164;
+
+}
+
+
+.address{
+
+  margin-top:42px;
+
+  padding-top:23px;
+
+  border-top:
+
+  1px solid rgba(113,100,180,.28);
+
+}
+
+
+.address-title{
+
+  display:block;
+
+  margin-bottom:11px;
+
+  font-size:8px;
+
+  letter-spacing:.30em;
+
+  text-transform:uppercase;
+
+  opacity:.55;
+
+}
+
+
+.address a{
+
+  font-family:"Playfair Display",serif;
+
+  font-size:25px;
+
+  color:var(--violet);
+
+}
+
+
+/* =====================================================
+   CONTACTS
+===================================================== */
+
+.contacts{
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  align-items:center;
+
+  text-align:center;
+
+  padding:110px 7vw;
+
+}
+
+
+.contacts h2{
+
+  font-family:"Italiana",serif;
+
+  font-size:clamp(72px,11vw,160px);
+
+  font-weight:400;
+
+  line-height:.72;
+
+  margin-bottom:52px;
+
+}
+
+
+.contacts h2 em{
+
+  font-family:"Playfair Display",serif;
+
+  color:var(--violet);
+
+  font-style:italic;
+
+}
+
+
+.phone{
+
+  font-family:"Playfair Display",serif;
+
+  font-size:clamp(30px,4vw,58px);
+
+}
+
+
+.contact-text{
+
+  margin-top:18px;
+
+  font-size:9px;
+
+  letter-spacing:.20em;
+
+  text-transform:uppercase;
+
+  opacity:.55;
+
+}
+
+
+.socials{
+
+  display:flex;
+
+  gap:15px;
+
+  margin-top:36px;
+
+}
+
+
+.social{
+
+  width:52px;
+
+  height:52px;
+
+  border-radius:50%;
+
+  border:
+
+  1px solid rgba(113,100,180,.35);
+
+  display:grid;
+
+  place-items:center;
+
+  color:var(--violet);
+
+  font-size:11px;
+
+  letter-spacing:.05em;
+
+  transition:.35s;
+
+}
+
+
+.social:hover{
+
+  background:var(--violet);
+
+  color:white;
+
+  transform:translateY(-5px);
+
+}
+
+
+.footer{
+
+  margin-top:75px;
+
+  font-size:8px;
+
+  letter-spacing:.25em;
+
+  text-transform:uppercase;
+
+  opacity:.45;
+
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:2000;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:20px;
+
+  background:rgba(41,37,56,.38);
+
+  backdrop-filter:blur(12px);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  transition:.4s;
+
+}
+
+
+.modal.active{
+
+  opacity:1;
+
+  visibility:visible;
+
+}
+
+
+.modal-box{
+
+  position:relative;
+
+  width:min(500px,100%);
+
+  padding:
+
+  55px
+
+  45px
+
+  45px;
+
+  text-align:center;
+
+  background:
+
+  rgba(239,242,250,.96);
+
+  box-shadow:
+
+  0 35px 100px rgba(41,37,56,.25);
+
+  transform:
+
+  translateY(30px)
+
+  scale(.97);
+
+  transition:.45s cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+.modal.active .modal-box{
+
+  transform:none;
+
+}
+
+
+.modal-close{
+
+  position:absolute;
+
+  top:18px;
+
+  right:22px;
+
+  border:none;
+
+  background:none;
+
+  color:var(--violet);
+
+  font-size:28px;
+
+  cursor:pointer;
+
+  font-weight:300;
+
+}
+
+
+.modal-kicker{
+
+  font-size:8px;
+
+  letter-spacing:.36em;
+
+  text-transform:uppercase;
+
+  color:var(--violet);
+
+  margin-bottom:18px;
+
+}
+
+
+.modal-title{
+
+  font-family:"Italiana",serif;
+
+  font-size:clamp(50px,7vw,78px);
+
+  font-weight:400;
+
+  line-height:.85;
+
+}
+
+
+.modal-title em{
+
+  display:block;
+
+  margin-top:10px;
+
+  font-family:"Playfair Display",serif;
+
+  font-size:.55em;
+
+  font-style:italic;
+
+  color:var(--violet);
+
+}
+
+
+.modal-text{
+
+  max-width:340px;
+
+  margin:
+
+  25px auto
+
+  32px;
+
+  font-size:13px;
+
+  line-height:1.9;
+
+  color:#575164;
+
+}
+
+
+.whatsapp-button{
+
+  width:100%;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:14px;
+
+  padding:19px;
+
+  background:var(--violet);
+
+  color:white;
+
+  font-size:9px;
+
+  letter-spacing:.24em;
+
+  text-transform:uppercase;
+
+  transition:.35s;
+
+}
+
+
+.whatsapp-button:hover{
+
+  transform:translateY(-3px);
+
+  box-shadow:
+
+  0 15px 30px rgba(113,100,180,.25);
+
+}
+
+
+.modal-bottom{
+
+  margin-top:20px;
+
+  font-size:8px;
+
+  letter-spacing:.16em;
+
+  text-transform:uppercase;
+
+  opacity:.5;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:800px){
+
+  .nav{
+
+    height:72px;
+
+    padding:17px 7vw;
+
+  }
+
+  .navlinks{
+
+    display:none;
+
+  }
+
+  .hero{
+
+    padding:
+
+    110px 8vw
+
+    80px;
+
+  }
+
+  .collection{
+
+    padding:
+
+    100px 7vw
+
+    80px;
+
+  }
+
+  .collection-head{
+
+    display:block;
+
+  }
+
+  .collection-note{
+
+    margin-top:20px;
+
+  }
+
+  .dress-card{
+
+    height:62vh;
+
+    min-height:450px;
+
+  }
+
+  .gallery-button{
+
+    width:46px;
+
+    height:46px;
+
+  }
+
+  .prev{
+
+    left:-15px;
+
+  }
+
+  .next{
+
+    right:-15px;
+
+  }
+
+  .about{
+
+    grid-template-columns:1fr;
+
+    gap:60px;
+
+    padding:
+
+    100px 8vw;
+
+  }
+
+  .about-image{
+
+    height:55vh;
+
+    min-height:400px;
+
+  }
+
+}
+
+
+@media(max-width:500px){
+
+  .intro-content{
+
+    padding:20px;
+
+  }
+
+  .intro-dress{
+
+    width:230px;
+
+    height:310px;
+
+  }
+
+  .intro-title{
+
+    font-size:50px;
+
+  }
+
+  .intro-enter{
+
+    font-size:7px;
+
+    letter-spacing:.24em;
+
+  }
+
+  .hero h1{
+
+    font-size:75px;
+
+  }
+
+  .collection h2,
+
+  .about h2{
+
+    font-size:68px;
+
+  }
+
+  .dress-card{
+
+    min-height:430px;
+
+  }
+
+  .model-name{
+
+    font-size:42px;
+
+  }
+
+  .modal-box{
+
+    padding:
+
+    52px 25px
+
+    35px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<audio id="siteMusic" preload="auto">
+
+  <source src="music.mp3" type="audio/mpeg">
+
+</audio>
+
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<video class="site-bg"
+autoplay
+muted
+loop
+playsinline>
+
+  <source src="background.mp4" type="video/mp4">
+
+</video>
+
+<div class="background-overlay"></div>
+
+
+
+<!-- =====================================================
+     ZERO PAGE
+===================================================== -->
+
+<section id="intro">
+
+  <div class="intro-content" id="enterSite">
+
+    <div class="intro-kicker">
+      Bridal boutique
+    </div>
+
+
+    <img
+      src="logo.png"
+      class="intro-logo"
+      alt="АЙВОРИ"
+    >
+
+
+    <img
+      src="entry-dress.png"
+      class="intro-dress"
+      alt="Свадебное платье"
+    >
+
+
+    <h1 class="intro-title">
+
+      СВАДЕБНЫЙ САЛОН
+
+      <span>
+        «АЙВОРИ»
+      </span>
+
+    </h1>
+
+
+    <div class="intro-sub">
+
+      Дом мечты каждой девушки
+
+    </div>
+
+
+    <div class="intro-enter">
+
+      <div class="enter-circle">
+        →
+      </div>
+
+      Нажмите, чтобы войти
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN SITE
+===================================================== -->
+
+<div id="site">
+
+
+<!-- =====================================================
+     NAV
+===================================================== -->
+
+<header class="nav" id="nav">
+
+  <a href="#home" class="nav-logo">
+
+    АЙВОРИ
+
+  </a>
+
+
+  <nav class="navlinks">
+
+    <a href="#home">
+      Главная
+    </a>
+
+    <a href="#collection">
+      Коллекция
+    </a>
+
+    <a href="#about">
+      О салоне
+    </a>
+
+    <a href="#contacts">
+      Контакты
+    </a>
+
+  </nav>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+  <div class="hero-copy">
+
+    <div class="kicker">
+
+      Collection · 2026
+
+    </div>
+
+
+    <h1>
+
+      Твой день.
+
+      <br>
+
+      <em>
+        Твоё платье.
+      </em>
+
+    </h1>
+
+
+    <p class="hero-text">
+
+      Пространство, где выбор свадебного платья становится
+      частью особенной истории. Здесь каждая деталь создана
+      для того, чтобы помочь тебе почувствовать себя
+      именно той самой невестой.
+
+    </p>
+
+
+    <a
+      href="#collection"
+      class="hero-link"
+    >
+
+      Смотреть коллекцию
+
+      <span>
+        →
+      </span>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COLLECTION
+===================================================== -->
+
+<section class="collection" id="collection">
+
+
+  <div class="collection-head">
+
+    <div>
+
+      <div class="overline">
+
+        The collection
+
+      </div>
+
+
+      <h2>
+
+        Платья
+
+      </h2>
+
+    </div>
+
+
+    <div class="collection-note">
+
+      14 моделей · Bridal collection
+
+    </div>
+
+  </div>
+
+
+
+  <div class="gallery">
+
+
+    <button
+      class="gallery-button prev"
+      id="prev"
+      aria-label="Предыдущее платье"
+    >
+      ←
+    </button>
+
+
+
+    <div
+      class="dress-card"
+      id="dressCard"
+    >
+
+
+      <div
+        class="dress-placeholder"
+        id="placeholder"
+      >
+        АЙВОРИ
+      </div>
+
+
+
+      <img
+        class="dress-image"
+        id="dressImage"
+        alt="Свадебное платье"
+      >
+
+
+
+      <div class="dress-info">
+
+        <div
+          class="model-number"
+          id="modelNumber"
+        >
+          Bridal collection
+        </div>
+
+
+        <div
+          class="model-name"
+          id="modelName"
+        >
+          Модель 01
+        </div>
+
+
+        <div class="try-hint">
+
+          Нажмите, чтобы примерить
+
+          <span>
+            →
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <button
+      class="gallery-button next"
+      id="next"
+      aria-label="Следующее платье"
+    >
+      →
+    </button>
+
+
+  </div>
+
+
+
+  <div
+    class="dots"
+    id="dots"
+  ></div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="about" id="about">
+
+
+  <div class="about-image">
+
+    <!--
+    СЮДА МОЖНО ПОТОМ ДОБАВИТЬ ФОТО САЛОНА:
+
+    <img src="salon.jpg" alt="Свадебный салон Айвори">
+
+    -->
+
+  </div>
+
+
+
+  <div class="about-copy">
+
+
+    <div class="overline">
+
+      The salon
+
+    </div>
+
+
+    <h2>
+
+      Место,
+
+      <br>
+
+      <em>
+        где всё начинается.
+      </em>
+
+    </h2>
+
+
+
+    <p>
+
+      «Айвори» — это пространство, где мечта о свадебном
+      образе начинает становиться реальностью.
+
+      Здесь важны не только платья. Здесь важны эмоции,
+      атмосфера, детали и тот самый момент, когда,
+      посмотрев на себя в зеркало, ты понимаешь —
+      это именно оно.
+
+    </p>
+
+
+
+    <div class="address">
+
+      <span class="address-title">
+
+        Мы ждём вас
+
+      </span>
+
+
+      <a
+        href="https://yandex.ru/maps/"
+        target="_blank"
+        rel="noopener"
+      >
+
+        Адрес салона →
+
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACTS
+===================================================== -->
+
+<section class="contacts" id="contacts">
+
+
+  <div class="kicker">
+
+    Get in touch
+
+  </div>
+
+
+
+  <h2>
+
+    Будем рады
+
+    <br>
+
+    <em>
+      встрече.
+    </em>
+
+  </h2>
+
+
+
+  <a
+    href="tel:+79182415678"
+    class="phone"
+  >
+
+    8 918 241-56-78
+
+  </a>
+
+
+
+  <div class="contact-text">
+
+    Запись на примерку
+
+  </div>
+
+
+
+  <div class="socials">
+
+
+    <a
+      class="social"
+      href="https://wa.me/79182415678"
+      target="_blank"
+      aria-label="WhatsApp"
+    >
+
+      WA
+
+    </a>
+
+
+
+    <a
+      class="social"
+      href="https://www.instagram.com/ivo_rywedding/"
+      target="_blank"
+      aria-label="Instagram"
+    >
+
+      IG
+
+    </a>
+
+
+
+    <a
+      class="social"
+      href="tel:+79182415678"
+      aria-label="Позвонить"
+    >
+
+      ☎
+
+    </a>
+
+
+  </div>
+
+
+
+  <div class="footer">
+
+    Свадебный салон «Айвори»
+    ·
+    Дом мечты каждой девушки
+
+  </div>
+
+
+</section>
+
+
+</main>
+
+</div>
+
+
+
+<!-- =====================================================
+     FITTING MODAL
+===================================================== -->
+
+<div
+  class="modal"
+  id="modal"
+>
+
+
+  <div class="modal-box">
+
+
+    <button
+      class="modal-close"
+      id="modalClose"
+      aria-label="Закрыть"
+    >
+      ×
+    </button>
+
+
+
+    <div class="modal-kicker">
+
+      Bridal appointment
+
+    </div>
+
+
+
+    <h3 class="modal-title">
+
+      Примерить
+
+      <em id="modalDressName">
+
+        Модель 01
+
+      </em>
+
+    </h3>
+
+
+
+    <p class="modal-text">
+
+      Запишитесь на примерку, и мы поможем
+      подобрать платье, в котором начнётся
+      ваша особенная история.
+
+    </p>
+
+
+
+    <a
+      href="#"
+      target="_blank"
+      class="whatsapp-button"
+      id="whatsappButton"
+    >
+
+      Записаться на примерку
+
+      →
+
+    </a>
+
+
+
+    <div class="modal-bottom">
+
+      Мы будем рады видеть вас в «Айвори»
+
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   ZERO PAGE ENTER
+===================================================== */
+
+const intro = document.getElementById("intro");
+
+const enterSite = document.getElementById("enterSite");
+
+const music = document.getElementById("siteMusic");
+
+
+enterSite.addEventListener("click", async () => {
+
+
+  intro.classList.add("hidden");
+
+
+  document.body.classList.add("entered");
+
+
+  music.volume = 0.55;
+
+
+  try{
+
+    await music.play();
+
+  }
+
+  catch(error){
+
+    console.log("Музыка будет доступна после взаимодействия пользователя.");
+
+  }
+
+
+});
+
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+const nav = document.getElementById("nav");
+
+
+window.addEventListener("scroll", () => {
+
+  nav.classList.toggle(
+    "scrolled",
+    window.scrollY > 30
+  );
+
+});
+
+
+
+/* =====================================================
+   DRESS COLLECTION
+===================================================== */
+
+
+/*
+========================================================
+
+ВАЖНО!
+
+ФОТОГРАФИИ ДОЛЖНЫ ЛЕЖАТЬ РЯДОМ С index.html
+ИЛИ В ПАПКЕ САЙТА.
+
+Сейчас используются названия:
+
+dress-01.jpg
+dress-02.jpg
+dress-03.jpg
+...
+dress-14.jpg
+
+========================================================
+*/
+
+
+const models = [
+
+  {
+    image:"dress-01.jpg",
+    name:"Модель 01"
+  },
+
+  {
+    image:"dress-02.jpg",
+    name:"Модель 02"
+  },
+
+  {
+    image:"dress-03.jpg",
+    name:"Модель 03"
+  },
+
+  {
+    image:"dress-04.jpg",
+    name:"Модель 04"
+  },
+
+  {
+    image:"dress-05.jpg",
+    name:"Модель 05"
+  },
+
+  {
+    image:"dress-06.jpg",
+    name:"Модель 06"
+  },
+
+  {
+    image:"dress-07.jpg",
+    name:"Модель 07"
+  },
+
+  {
+    image:"dress-08.jpg",
+    name:"Модель 08"
+  },
+
+  {
+    image:"dress-09.jpg",
+    name:"Модель 09"
+  },
+
+  {
+    image:"dress-10.jpg",
+    name:"Модель 10"
+  },
+
+  {
+    image:"dress-11.jpg",
+    name:"Модель 11"
+  },
+
+  {
+    image:"dress-12.jpg",
+    name:"Модель 12"
+  },
+
+  {
+    image:"dress-13.jpg",
+    name:"Модель 13"
+  },
+
+  {
+    image:"dress-14.jpg",
+    name:"Модель 14"
+  }
+
+];
+
+
+let current = 0;
+
+
+const dressImage =
+document.getElementById("dressImage");
+
+
+const modelName =
+document.getElementById("modelName");
+
+
+const modelNumber =
+document.getElementById("modelNumber");
+
+
+const placeholder =
+document.getElementById("placeholder");
+
+
+const dots =
+document.getElementById("dots");
+
+
+const dressCard =
+document.getElementById("dressCard");
+
+
+/* =====================================================
+   CREATE DOTS
+===================================================== */
+
+models.forEach((model,index) => {
+
+
+  const dot = document.createElement("button");
+
+
+  dot.className =
+  "dot" + (index === 0 ? " active" : "");
+
+
+  dot.setAttribute(
+    "aria-label",
+    "Модель " + (index + 1)
+  );
+
+
+  dot.addEventListener(
+    "click",
+    () => showDress(index)
+  );
+
+
+  dots.appendChild(dot);
+
+
+});
+
+
+
+/* =====================================================
+   SHOW DRESS
+===================================================== */
+
+function showDress(index){
+
+
+  current =
+  (index + models.length)
+  % models.length;
+
+
+  const model = models[current];
+
+
+  dressImage.style.opacity = "0";
+
+
+  placeholder.style.display = "grid";
+
+
+  placeholder.textContent = "АЙВОРИ";
+
+
+  modelName.textContent =
+  model.name;
+
+
+  modelNumber.textContent =
+  "Bridal collection · "
+  + String(current + 1).padStart(2,"0");
+
+
+  const newImage = new Image();
+
+
+  newImage.onload = () => {
+
+
+    dressImage.src =
+    model.image;
+
+
+    dressImage.alt =
+    model.name;
+
+
+    placeholder.style.display =
+    "none";
+
+
+    requestAnimationFrame(() => {
+
+      dressImage.style.opacity = "1";
+
+    });
+
+
+  };
+
+
+  newImage.onerror = () => {
+
+
+    dressImage.style.opacity = "0";
+
+
+    placeholder.style.display =
+    "grid";
+
+
+  };
+
+
+  newImage.src =
+  model.image;
+
+
+
+  [...dots.children].forEach(
+    (dot,indexDot) => {
+
+      dot.classList.toggle(
+        "active",
+        indexDot === current
+      );
+
+    }
+  );
+
+
+}
+
+
+
+/* =====================================================
+   GALLERY BUTTONS
+===================================================== */
+
+document
+.getElementById("prev")
+.addEventListener("click", () => {
+
+  showDress(current - 1);
+
+});
+
+
+document
+.getElementById("next")
+.addEventListener("click", () => {
+
+  showDress(current + 1);
+
+});
+
+
+
+/* =====================================================
+   KEYBOARD
+===================================================== */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+
+    if(
+      event.key === "ArrowLeft"
+    ){
+
+      showDress(current - 1);
+
+    }
+
+
+    if(
+      event.key === "ArrowRight"
+    ){
+
+      showDress(current + 1);
+
+    }
+
+
+  }
+);
+
+
+
+/* =====================================================
+   SWIPE MOBILE
+===================================================== */
+
+let startX = 0;
+
+
+dressCard.addEventListener(
+  "touchstart",
+  event => {
+
+    startX =
+    event.changedTouches[0].screenX;
+
+  },
+  {passive:true}
+);
+
+
+dressCard.addEventListener(
+  "touchend",
+  event => {
+
+
+    const endX =
+    event.changedTouches[0].screenX;
+
+
+    const difference =
+    startX - endX;
+
+
+    if(
+      Math.abs(difference) > 50
+    ){
+
+
+      if(difference > 0){
+
+        showDress(current + 1);
+
+      }
+
+      else{
+
+        showDress(current - 1);
+
+      }
+
+
+    }
+
+
+  },
+  {passive:true}
+);
+
+
+
+/* =====================================================
+   FITTING MODAL
+===================================================== */
+
+const modal =
+document.getElementById("modal");
+
+
+const modalClose =
+document.getElementById("modalClose");
+
+
+const modalDressName =
+document.getElementById("modalDressName");
+
+
+const whatsappButton =
+document.getElementById("whatsappButton");
+
+
+function openModal(){
+
+
+  const selectedModel =
+  models[current].name;
+
+
+  modalDressName.textContent =
+  selectedModel;
+
+
+  const message =
+  encodeURIComponent(
+
+    "Здравствуйте! Я хочу записаться на примерку платья «"
+    + selectedModel
+    + "» в свадебном салоне «Айвори»."
+
+  );
+
+
+  whatsappButton.href =
+  "https://wa.me/79182415678?text="
+  + message;
+
+
+  modal.classList.add("active");
+
+
+  document.body.classList.add("lock");
+
+
+}
+
+
+
+function closeModal(){
+
+
+  modal.classList.remove("active");
+
+
+  document.body.classList.remove("lock");
+
+
+}
+
+
+
+/* CLICK DRESS */
+
+dressCard.addEventListener(
+  "click",
+  openModal
+);
+
+
+
+/* CLOSE */
+
+modalClose.addEventListener(
+  "click",
+  closeModal
+);
+
+
+
+/* CLOSE BY BACKGROUND */
+
+modal.addEventListener(
+  "click",
+  event => {
+
+
+    if(
+      event.target === modal
+    ){
+
+      closeModal();
+
+    }
+
+
+  }
+);
+
+
+
+/* ESC */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+
+    if(
+      event.key === "Escape"
+    ){
+
+      closeModal();
+
+    }
+
+
+  }
+);
+
+
+
+/* =====================================================
+   INITIAL DRESS
+===================================================== */
+
+showDress(0);
+
+
+</script>
+
+
+</body>
+
+</html>
