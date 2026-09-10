@@ -2280,7 +2280,7 @@ section{
 }
 
 
-  .intro-dress-button{
+ .intro-dress-button{
 
     width:min(245px,65vw);
 
@@ -2288,11 +2288,11 @@ section{
 
     min-height:205px;
 
-    margin-top:0;
+    margin-top:18px;
 
-    margin-bottom:0;
+    margin-bottom:-2px;
 
-  }
+}
 
 
   .intro-dress{
@@ -2306,42 +2306,53 @@ section{
 
   .intro-title{
 
+    font-family:"Italiana",serif;
+
     font-size:
+      clamp(31px,10vw,45px);
 
-      clamp(30px,9.5vw,43px);
+    line-height:.92;
 
-    margin-top:-70px;
+    font-weight:400;
 
-  }
+    letter-spacing:.08em;
 
+    margin-top:-105px;
 
-  .intro-title span{
+    transform:scaleX(1.06);
 
-    margin-top:7px;
+}
 
-    letter-spacing:.14em;
+ .intro-title span{
 
-  }
+    margin-top:9px;
 
+    letter-spacing:.16em;
+
+}
 
   .intro-sub{
 
+    font-family:"Playfair Display",serif;
+
     font-size:14px;
 
-    margin-top:8px;
+    margin-top:15px;
 
-  }
+    letter-spacing:.02em;
+
+}
 
 
   .intro-enter{
 
-    margin-top:7px;
+    margin-top:14px;
 
     font-size:6px;
 
-    letter-spacing:.18em;
+    letter-spacing:.20em;
 
-  }
+}
 
 
   .enter-circle{
@@ -2513,7 +2524,7 @@ section{
   <div class="intro-enter">
 
     <div class="enter-circle">
-      →
+      
     </div>
 
     Нажмите на платье, чтобы войти
