@@ -1512,28 +1512,6 @@ section{
 }
 
 
-.model-number{
-
-  font-size:8px;
-
-  letter-spacing:.35em;
-
-  text-transform:uppercase;
-
-  opacity:.8;
-
-  margin-bottom:10px;
-
-}
-
-
-.model-name{
-
-  font-family:"Playfair Display",serif;
-
-  font-size:clamp(38px,5vw,70px);
-
-}
 
 
 .try-hint{
@@ -2501,13 +2479,6 @@ section{
   }
 
 
-  .model-name{
-
-    font-size:42px;
-
-  }
-
-
   .modal-box{
 
     padding:
@@ -2804,30 +2775,9 @@ section{
       >
 
 
-      <div class="dress-info">
-
-        <div
-          class="model-number"
-          id="modelNumber"
-        >
-          Bridal collection
-        </div>
-
-
-        <div
-          class="model-name"
-          id="modelName"
-        >
-          Модель 01
-        </div>
-
-
-        <div class="try-hint">
-          Нажмите, чтобы примерить
-          <span>→</span>
-        </div>
-
-      </div>
+    <div class="dress-info">
+  <div class="try-hint">Нажмите, чтобы примерить <span>→</span></div>
+</div>
 
     </div>
 
@@ -3361,14 +3311,6 @@ const dressImage =
   document.getElementById("dressImage");
 
 
-const modelName =
-  document.getElementById("modelName");
-
-
-const modelNumber =
-  document.getElementById("modelNumber");
-
-
 const placeholder =
   document.getElementById("placeholder");
 
@@ -3379,7 +3321,6 @@ const dots =
 
 const dressCard =
   document.getElementById("dressCard");
-
 
 /* =====================================================
    CREATE DOTS
@@ -3440,15 +3381,6 @@ function showDress(index){
   placeholder.textContent =
     "АЙВОРИ";
 
-
-  modelName.textContent =
-    model.name;
-
-
-  modelNumber.textContent =
-    "Bridal collection · "
-    +
-    String(current + 1).padStart(2,"0");
 
 
   const newImage =
